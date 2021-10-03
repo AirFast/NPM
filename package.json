@@ -1,6 +1,5 @@
 {
-	"name": "managing-packages-with-npm",
-    "version": "1.0.0",
+    "name": "managing-packages-with-npm",
     "author": "andrew",
 	"dependencies": {
 		"express": "^4.14.0"
