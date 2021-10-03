@@ -1,7 +1,7 @@
 {
 	"name": "managing-packages-with-npm",
     "version": "1.0.0",
-    "author": "Andrew Petryk",
+    "author": "andrew",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
