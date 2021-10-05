@@ -1,6 +1,6 @@
-import { Switch, Route, NavLink } from 'react-router-dom';
-import logo from './logo.svg';
-import styles from './App.module.css';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
 
 // Pages
 import home from './pages/home';
@@ -9,32 +9,19 @@ import cart from './pages/cart';
 
 const App = () => {
   return (
-    <>
-      <div className='container'>
-        <header className={styles.app_header}>
-          <NavLink to={'/'}>
-            <div className={styles.logo_block}>
-              <img src={logo} className={styles.app_logo} alt="logo" />
-              <span className={styles.site_name}>React shop</span>
-            </div>
-          </NavLink>
-          <ul>
-            <li>
-              <NavLink to={'/wishlist'}>Wishlist</NavLink>
-            </li>
-            <li>
-              <NavLink to={'/cart'}>Cart</NavLink>
-            </li>
-          </ul>
-        </header>
-      </div>
-      <Switch>
-        <Route exact path={'/'} component={home} />
-        <Route exact path={'/wishlist'} component={wishlist} />
-        <Route exact path={'/cart'} component={cart} />
-      </Switch>
-    </>
+    <div className='container'>
+      <div className='row'>
 
+        <Header/>
+
+        <Switch>
+          <Route exact path={'/'} component={home} />
+          <Route exact path={'/wishlist'} component={wishlist} />
+          <Route exact path={'/cart'} component={cart} />
+        </Switch>
+
+      </div>
+    </div>
   );
 }
 

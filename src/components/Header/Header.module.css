@@ -1,0 +1,38 @@
+.logo {
+    height: 32px;
+    pointer-events: none;
+}
+
+.site_name {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navigation {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navigation .nav_item {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 25s linear;
+    }
+}
+
+
+@keyframes logo-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
