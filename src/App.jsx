@@ -9,19 +9,15 @@ import cart from './pages/cart';
 
 const App = () => {
   return (
-    <div className='container'>
-      <div className='row'>
+    <>
+      <Header />
 
-        <Header/>
-
-        <Switch>
-          <Route exact path={'/'} component={home} />
-          <Route exact path={'/wishlist'} component={wishlist} />
-          <Route exact path={'/cart'} component={cart} />
-        </Switch>
-
-      </div>
-    </div>
+      <Switch>
+        <Route exact path={'/'} component={home} />
+        <Route exact path={'/wishlist'} component={wishlist} />
+        <Route exact path={'/cart'} component={cart} />
+      </Switch>
+    </>
   );
 }
 

@@ -6,28 +6,34 @@ import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <div className='col-12 mt-30 mb-60'>
-      <header className='d-flax flex-direction-row justify-content-space-between align-items-center'>
-        <NavLink to={'/'}>
-          <div className='d-flax align-items-center'>
-            <img src={logo} className={styles.logo} alt="logo" />
-            <span className={styles.site_name}>React shop</span>
-          </div>
-        </NavLink>
-        <ul className={styles.navigation}>
-          <li className={styles.nav_item}>
-            <NavLink to={'/wishlist'}>
-              <Heart size={20} />
+    <div className='container'>
+      <div className='row'>
+        <div className='col-12 mt-30 mb-60'>
+
+          <header className='d-flax flex-direction-row justify-content-space-between align-items-center'>
+            <NavLink to={'/'}>
+              <div className='d-flax align-items-center'>
+                <img src={logo} className={styles.logo} alt="logo" />
+                <span className={styles.site_name}>React shop</span>
+              </div>
             </NavLink>
-          </li>
-          <li className={styles.nav_item}>
-            <NavLink to={'/cart'}>
-              <BagFill size={20} />
-            </NavLink>
-          </li>
-        </ul>
-      </header>
-    </div>
+            <ul className={styles.navigation}>
+              <li className={styles.nav_item}>
+                <NavLink to={'/wishlist'}>
+                  <Heart size={20} />
+                </NavLink>
+              </li>
+              <li className={styles.nav_item}>
+                <NavLink to={'/cart'}>
+                  <BagFill size={20} />
+                </NavLink>
+              </li>
+            </ul>
+          </header>
+          
+        </div>
+      </div>
+    </div >
   );
 };
 
