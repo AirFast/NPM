@@ -1,12 +1,13 @@
-//import axios from 'axios';
 import React from 'react';
 import styles from './ProductItem.module.css'
 
 const ProductItem = ({ product }) => {
     return (
-        <article className={'col-3 ' + styles.product_item}>
-            <img src={`./img/${product.image}`} alt="logo" />
-        </article>
+        <div className='col-3 mt-20 mb-20'>
+            <article className={styles.product_item}>
+                <img src={`./img/${product.image}`} alt="logo" />
+            </article>
+        </div>
     );
 };
 
