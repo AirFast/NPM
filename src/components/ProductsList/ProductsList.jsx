@@ -5,19 +5,19 @@ import Loader from '../Loader/Loader';
 import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
-    const { products } = useSelector(state => state);
+    const { products, cart } = useSelector(state => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setProducts());
     }, [dispatch]);
 
-    console.log(products)
+    console.log(products, cart);
 
     return (
-        products.isSet ?
-            products.items.map(product => <ProductItem key={product.id} product={product} />) :
-            <Loader />
+        products.isSet
+            ? products.items.map(product => <ProductItem key={product.id} product={product} />)
+            : <Loader />
     );
 };
 

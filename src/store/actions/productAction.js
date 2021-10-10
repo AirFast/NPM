@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { mockAPI } from '../../mockapi';
 
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 
 export const setProducts = () => {
-    return (dispatch) => {
-        axios.get('https://615056a5a706cd00179b740b.mockapi.io/products').then(response => {
+    return dispatch => {
+        axios.get(mockAPI.path + 'products').then(response => {
             dispatch({ type: SET_PRODUCTS, items: response.data });
         });
     };
