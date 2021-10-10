@@ -3,7 +3,7 @@ import { SET_PRODUCTS } from '../actions/productAction';
 const initState = {
     isSet: false,
     items: [],
-    pages: 0
+    count: 0
 };
 
 const productReduser = (state = initState, action) => {
@@ -13,7 +13,7 @@ const productReduser = (state = initState, action) => {
                 ...state,
                 isSet: true,
                 items: [...action.items],
-                pages: action.items.length
+                count: action.items.length
             };
         default:
             return state;

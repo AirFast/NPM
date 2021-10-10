@@ -1,4 +1,5 @@
 import React from 'react';
+import { Plus } from 'react-bootstrap-icons';
 import styles from './ProductItem.module.css'
 
 const ProductItem = ({ product }) => {
@@ -7,6 +8,10 @@ const ProductItem = ({ product }) => {
             <article className={styles.product_item}>
                 <img src={`./img/${product.image}`} alt="logo" />
                 <h3 className={styles.title}>{product.title}</h3>
+                <div className={styles.product_item_footer}>
+                    <span className={styles.price}>${product.price}</span>
+                    <button><Plus size={28} /></button>
+                </div>
             </article>
         </div>
     );

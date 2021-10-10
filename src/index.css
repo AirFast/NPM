@@ -28,7 +28,7 @@ a {
 }
 
 a:hover {
-  color: #61dafb;
+  color: #06d474;
 }
 
 .container {
@@ -1028,6 +1028,18 @@ h6:first-child {
   margin: auto;
 }
 
+.mt-a {
+  margin-top: auto;
+}
+
+.mb-a {
+  margin-bottom: auto;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
 .mt-5 {
   margin-top: 5px;
 }
@@ -1106,6 +1118,10 @@ h6:first-child {
 
 .mt-100 {
   margin-top: 100px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
 }
 
 .mb-5 {

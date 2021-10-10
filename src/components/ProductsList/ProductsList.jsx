@@ -12,6 +12,8 @@ const ProductsList = () => {
         dispatch(setProducts());
     }, [dispatch]);
 
+    console.log(products)
+
     return (
         products.isSet ?
             products.items.map(product => <ProductItem key={product.id} product={product} />) :

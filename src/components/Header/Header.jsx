@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './logo.svg';
-import { Heart, BagFill } from 'react-bootstrap-icons';
+import { ArrowClockwise, Heart, BagFill } from 'react-bootstrap-icons';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
           <header className='d-flax flex-direction-row justify-content-space-between align-items-center'>
             <NavLink to={'/'}>
               <div className='d-flax align-items-center'>
-                <img src={logo} className={styles.logo} alt="logo" />
+                <span className={styles.logo}><ArrowClockwise size={32} /></span>
                 <span className={styles.site_name}>React shop</span>
               </div>
             </NavLink>
@@ -30,7 +29,7 @@ const Header = () => {
               </li>
             </ul>
           </header>
-          
+
         </div>
       </div>
     </div >

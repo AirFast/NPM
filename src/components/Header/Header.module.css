@@ -1,9 +1,11 @@
 .logo {
+    color: #06d474;
     height: 32px;
     pointer-events: none;
 }
 
 .site_name {
+    margin-left: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -22,7 +24,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .logo {
-        animation: logo-spin infinite 25s linear;
+        animation: logo-spin infinite 15s linear;
     }
 }
 
