@@ -2,13 +2,17 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Check, Plus, Heart, HeartFill } from 'react-bootstrap-icons';
 import styles from './ProductItem.module.css'
-import { addToCart } from '../../store/actions/cartAction';
+import { addToCart, removeFromCart } from '../../store/actions/cartAction';
 
 const ProductItem = ({ product }) => {
     const dispatch = useDispatch();
 
-    const handlerAddToCart = () => {
+    const handleAddToCart = () => {
         dispatch(addToCart(product.id));
+    }
+
+    const handleRemoveFromCart = () => {
+        dispatch(removeFromCart(product.id));
     }
 
     return (
@@ -21,8 +25,8 @@ const ProductItem = ({ product }) => {
                 <div className={styles.product_item_footer}>
                     <span className={styles.price}>${product.price}</span>
                     {!product.isAddedToCart
-                        ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handlerAddToCart}><Plus size={28} /></button>
-                        : <button className={styles.remove_from_cart} title='Remove from Cart'><Check size={28} /></button>}
+                        ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handleAddToCart}><Plus size={28} /></button>
+                        : <button className={styles.remove_from_cart} title='Remove from Cart' onClick={handleRemoveFromCart}><Check size={28} /></button>}
                 </div>
             </article>
         </div>

@@ -26,7 +26,7 @@ const productReduser = (state = initState, action) => {
                 items: [
                     ...state.items.map(item => {
                         if (item.id === action.id) {
-                            return { ...item, isAddedToCart: true };
+                            return { ...item, isAddedToCart: !item.isAddedToCart };
                         }
                         return item;
                     })

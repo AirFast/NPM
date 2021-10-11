@@ -26,3 +26,20 @@ export const addToCart = id => {
             });
     };
 };
+
+export const removeFromCart = id => {
+    return (dispatch, getState) => {
+        const { cart } = getState();
+
+        cart.items.forEach(item => {
+            if (item.productId === id) {
+                axios.delete(mockAPI.path + 'cart/' + item.id)
+                    .then(response => {
+                        console.log(response)
+                            dispatch({ type: SET_ADDED_TO_CART, id });
+                        //         // dispatch({ type: ADD_TO_CART, item: response.data });
+                    });
+            }
+        });
+    };
+};
