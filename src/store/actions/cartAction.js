@@ -35,8 +35,7 @@ export const removeFromCart = id => {
             if (item.productId === id) {
                 axios.delete(mockAPI.path + 'cart/' + item.id)
                     .then(response => {
-                        console.log(response)
-                            dispatch({ type: SET_ADDED_TO_CART, id });
+                        dispatch({ type: SET_ADDED_TO_CART, id });
                         //         // dispatch({ type: ADD_TO_CART, item: response.data });
                     });
             }
