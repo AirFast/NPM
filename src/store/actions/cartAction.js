@@ -8,7 +8,11 @@ export const SET_ADDED_TO_CART = 'SET_ADDED_TO_CART';
 export const setCart = () => {
     return dispatch => {
         axios.get(mockAPI.path + 'cart').then(response => {
-            dispatch({ type: SET_CART, items: response.data });
+            let items = response.data;
+            items.forEach(item => {
+                dispatch({ type: SET_ADDED_TO_CART, id: item.productId });
+            });
+            dispatch({ type: SET_CART, items });
         });
     };
 };

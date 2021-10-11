@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowClockwise, Heart, BagFill } from 'react-bootstrap-icons';
 import styles from './Header.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { setCart } from '../../store/actions/cartAction';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { cart } = useSelector(state => state)
-  const dispatch = useDispatch();
+  const { cart } = useSelector(state => state);
 
-  useEffect(() => {
-    dispatch(setCart())
-  }, [dispatch])
-
-  console.log(cart)
+  console.log(cart);
 
   return (
     <div className='container'>
@@ -30,12 +24,12 @@ const Header = () => {
             <ul className={styles.navigation}>
               <li className={styles.nav_item}>
                 <NavLink to={'/wishlist'}>
-                  <Heart size={20} />
+                  <Heart size={24} />
                 </NavLink>
               </li>
               <li className={styles.nav_item}>
                 <NavLink to={'/cart'}>
-                  <BagFill size={20} />
+                  <BagFill size={24} />
                   {cart.isSet && <span className={styles.count}>{cart.count}</span>}
                 </NavLink>
               </li>

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setProducts } from './store/actions/productAction';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 
@@ -8,6 +10,12 @@ import wishlist from './pages/wishlist';
 import cart from './pages/cart';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setProducts());
+  }, [dispatch]);
+
   return (
     <>
       <Header />

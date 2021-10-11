@@ -28,17 +28,25 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 600;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+    padding-left: 1px;
     color: #282c34;
     border: 2px solid #282c34;
     right: -10px;
     bottom: -5px;
     border-radius: 100%;
     background: #fff;
+    transition: all .25s ease-in-out;
+}
+
+.nav_item a:hover .count {
+    color: #fff;
+    border: 2px solid #fff;
+    background: #06d474;
 }
 
 @media (prefers-reduced-motion: no-preference) {
