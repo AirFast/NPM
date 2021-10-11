@@ -5,14 +5,14 @@ import Loader from '../Loader/Loader';
 import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
-    const { products, cart } = useSelector(state => state);
+    const { products } = useSelector(state => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setProducts());
     }, [dispatch]);
 
-    console.log(products, cart);
+    console.log(products);
 
     return (
         products.isSet

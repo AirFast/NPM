@@ -18,8 +18,27 @@
 }
 
 .navigation .nav_item {
+    position: relative;
     display: inline-block;
     margin: 0 10px;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    color: #282c34;
+    border: 2px solid #282c34;
+    right: -10px;
+    bottom: -5px;
+    border-radius: 100%;
+    background: #fff;
 }
 
 @media (prefers-reduced-motion: no-preference) {

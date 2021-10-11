@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowClockwise, Heart, BagFill } from 'react-bootstrap-icons';
 import styles from './Header.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCart } from '../../store/actions/cartAction';
 
 const Header = () => {
+  const { cart } = useSelector(state => state)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCart())
+  }, [dispatch])
+
+  console.log(cart)
+
   return (
     <div className='container'>
       <div className='row'>
@@ -25,6 +36,7 @@ const Header = () => {
               <li className={styles.nav_item}>
                 <NavLink to={'/cart'}>
                   <BagFill size={20} />
+                  {cart.isSet && <span className={styles.count}>{cart.count}</span>}
                 </NavLink>
               </li>
             </ul>

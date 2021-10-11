@@ -8,9 +8,7 @@ const ProductItem = ({ product }) => {
     const dispatch = useDispatch();
 
     const handlerAddToCart = () => {
-        dispatch(addToCart({
-            productId: product.id
-        }));
+        dispatch(addToCart(product.id));
     }
 
     return (
@@ -22,8 +20,9 @@ const ProductItem = ({ product }) => {
                 <h3 className={styles.title}>{product.title}</h3>
                 <div className={styles.product_item_footer}>
                     <span className={styles.price}>${product.price}</span>
-                    <button className={styles.add_to_cart} title='Add to Cart' onClick={handlerAddToCart}><Plus size={28} /></button>
-                    {/* <button className={styles.remove_from_cart} title='Remove from Cart'><Check size={28} /></button> */}
+                    {!product.isAddedToCart
+                        ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handlerAddToCart}><Plus size={28} /></button>
+                        : <button className={styles.remove_from_cart} title='Remove from Cart'><Check size={28} /></button>}
                 </div>
             </article>
         </div>

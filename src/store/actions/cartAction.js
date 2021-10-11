@@ -3,6 +3,7 @@ import { mockAPI } from '../../mockapi';
 
 export const SET_CART = 'SET_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const SET_ADDED_TO_CART = 'SET_ADDED_TO_CART';
 
 export const setCart = () => {
     return dispatch => {
@@ -12,11 +13,12 @@ export const setCart = () => {
     };
 };
 
-export const addToCart = payload => {
+export const addToCart = id => {
     return dispatch => {
-        //axios.get(mockAPI.path + 'cart').then(response => {
-            // dispatch({ type: SET, item: payload });
-            dispatch({ type: ADD_TO_CART, item: payload });
-        //});
+        axios.post(mockAPI.path + 'cart', { productId: id })
+            .then(response => {
+                dispatch({ type: SET_ADDED_TO_CART, id });
+                dispatch({ type: ADD_TO_CART, item: response.data });
+            });
     };
 };
