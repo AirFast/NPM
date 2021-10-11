@@ -12,7 +12,9 @@ const cartReduser = (state = initState, action) => {
             return {
                 ...state,
                 isSet: action.items.length ? true : false,
-                items: [...action.items],
+                items: [
+                    ...action.items
+                ],
                 count: action.items.length
             };
         case ADD_TO_CART:
