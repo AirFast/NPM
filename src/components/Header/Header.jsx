@@ -7,9 +7,6 @@ import { useSelector } from 'react-redux';
 const Header = () => {
   const { wishlist, cart } = useSelector(state => state);
 
-  // console.log(cart);
-  console.log(wishlist);
-
   return (
     <div className='container'>
       <div className='row'>
