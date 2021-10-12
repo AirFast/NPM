@@ -8,13 +8,11 @@ const Header = () => {
   const { wishlist, cart } = useSelector(state => state);
 
   return (
-    <div className='container'>
+    <header className='container'>
       <div className='row'>
-        <div className='col-12 mt-30 mb-60'>
-
-          <header className='d-flax flex-direction-row justify-content-space-between align-items-center'>
+        <div className='col-12 mt-30 mb-100 d-flex flex-direction-row justify-content-space-between align-items-center'>
             <NavLink to={'/'}>
-              <div className='d-flax align-items-center'>
+              <div className='d-flex align-items-center'>
                 <span className={styles.logo}><ArrowClockwise size={32} /></span>
                 <span className={styles.site_name}>React shop</span>
               </div>
@@ -33,11 +31,9 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-          </header>
-
         </div>
       </div>
-    </div >
+    </header >
   );
 };
 

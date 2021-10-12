@@ -9,13 +9,11 @@ const ProductsList = () => {
     console.log(products);
 
     return (
-        <div className="row">
-            {products.isSet
-                ? products.items
-                    .filter(item => item.title.toLowerCase().includes(products.searchValue.toLowerCase()))
-                    .map(product => <ProductItem key={product.id} product={product} />)
-                : <Loader />}
-        </div>
+        products.isSet
+            ? products.items
+                .filter(item => item.title.toLowerCase().includes(products.searchValue.toLowerCase()))
+                .map(product => <ProductItem key={product.id} product={product} />)
+            : <Loader />
     );
 };
 

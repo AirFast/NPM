@@ -4,10 +4,12 @@ import ProductsList from '../components/ProductsList/ProductsList';
 
 const Home = () => {
     return (
-        <div className='container'>
-            <PageHeader />
-            <ProductsList />
-        </div>
+        <main className='container'>
+            <section className='row'>
+                <PageHeader />
+                <ProductsList />
+            </section>
+        </main>
     );
 };
 

@@ -12,12 +12,12 @@ const PageHeader = () => {
     }
 
     return (
-        <header className='row align-items-center mb-40'>
+        <header className='d-flex flex-direction-row align-items-center w-100 mb-60'>
             <div className='col-9'>
                 <h1 className='mb-0'>{searchValue ? `Search Product: ${searchValue}` : 'All Products'}</h1>
             </div>
             <div className='col-3'>
-                <input className={styles.search_input} type='text' value={searchValue} onChange={handleSetSearchValue}/>
+                <input className={styles.search_input} type='text' value={searchValue} onChange={handleSetSearchValue} />
             </div>
         </header>
     );

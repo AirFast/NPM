@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setProducts } from './store/actions/productAction';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 // Pages
 import home from './pages/home';
@@ -25,6 +26,8 @@ const App = () => {
         <Route exact path={'/wishlist'} component={wishlist} />
         <Route exact path={'/cart'} component={cart} />
       </Switch>
+
+      <Footer />
     </>
   );
 }

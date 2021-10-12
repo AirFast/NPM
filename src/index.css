@@ -987,7 +987,7 @@ h6:first-child {
   margin-top: 0;
 }
 
-.d-flax {
+.d-flex {
   display: flex;
   flex-wrap: wrap;
 }
