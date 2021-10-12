@@ -48,6 +48,7 @@
     font-weight: 900;
 }
 
+.mini_loader,
 .add_to_wishlist,
 .remove_from_wishlist {
     position: absolute;
