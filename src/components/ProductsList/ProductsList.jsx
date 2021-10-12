@@ -5,11 +5,17 @@ import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
     const { products } = useSelector(state => state);
-    
+
+    console.log(products);
+
     return (
-        products.isSet
-            ? products.items.map(product => <ProductItem key={product.id} product={product} />)
-            : <Loader />
+        <div className="row">
+            {products.isSet
+                ? products.items
+                    .filter(item => item.title.toLowerCase().includes(products.searchValue.toLowerCase()))
+                    .map(product => <ProductItem key={product.id} product={product} />)
+                : <Loader />}
+        </div>
     );
 };
 

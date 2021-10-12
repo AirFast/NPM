@@ -1,10 +1,11 @@
-import { SET_PRODUCTS, SET_PENDING_PRODUCT } from '../actions/productAction';
+import { SET_PRODUCTS, SET_PENDING_PRODUCT, SET_SEARCH_VALUE } from '../actions/productAction';
 import { SET_ADDED_TO_CART } from '../actions/cartAction';
 import { SET_ADDED_TO_WISHLIST } from '../actions/wishlistAction';
 
 const initState = {
     isSet: false,
     items: [],
+    searchValue: '',
     count: 0
 };
 
@@ -72,6 +73,11 @@ const productReduser = (state = initState, action) => {
                         return item;
                     })
                 ]
+            }
+        case SET_SEARCH_VALUE:
+            return {
+                ...state,
+                searchValue: action.value
             }
         default:
             return state;

@@ -1,15 +1,12 @@
 import React from 'react';
+import PageHeader from '../components/PageHeader/PageHeader';
 import ProductsList from '../components/ProductsList/ProductsList';
 
 const Home = () => {
     return (
         <div className='container'>
-            <div className='row'>
-                <div className='col-12'>
-                    <h1>Home</h1>
-                </div>
-                <ProductsList />
-            </div>
+            <PageHeader />
+            <ProductsList />
         </div>
     );
 };

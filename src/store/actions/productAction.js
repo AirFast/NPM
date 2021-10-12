@@ -5,6 +5,7 @@ import { setCart } from './cartAction';
 
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const SET_PENDING_PRODUCT = 'SET_PENDING_PRODUCT';
+export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
 
 export const setProducts = () => {
     return dispatch => {
@@ -13,5 +14,11 @@ export const setProducts = () => {
             dispatch(setWishlist());
             dispatch(setCart());
         });
+    };
+};
+
+export const setSearchValue = value => {
+    return dispatch => {
+        dispatch({ type: SET_SEARCH_VALUE, value });
     };
 };
