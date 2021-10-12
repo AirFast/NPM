@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Check, Plus, Heart, HeartFill } from 'react-bootstrap-icons';
 import styles from './ProductItem.module.css'
 import { addToCart, removeFromCart } from '../../store/actions/cartAction';
+import MiniLoader from '../Loader/MiniLoader';
 
 const ProductItem = ({ product }) => {
     const dispatch = useDispatch();
@@ -24,9 +25,11 @@ const ProductItem = ({ product }) => {
                 <h3 className={styles.title}>{product.title}</h3>
                 <div className={styles.product_item_footer}>
                     <span className={styles.price}>${product.price}</span>
-                    {!product.isAddedToCart
-                        ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handleAddToCart}><Plus size={28} /></button>
-                        : <button className={styles.remove_from_cart} title='Remove from Cart' onClick={handleRemoveFromCart}><Check size={28} /></button>}
+                    {product.isPending
+                        ? <MiniLoader />
+                        : !product.isAddedToCart
+                            ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handleAddToCart}><Plus size={28} /></button>
+                            : <button className={styles.remove_from_cart} title='Remove from Cart' onClick={handleRemoveFromCart}><Check size={28} /></button>}
                 </div>
             </article>
         </div>

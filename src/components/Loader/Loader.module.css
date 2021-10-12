@@ -6,8 +6,14 @@
     right: 0;
 }
 
-.loader {
+.loader,
+.mini_loader {
     position: relative;
+}
+
+.mini_loader {
+    width: 32px;
+    height: 32px;
 }
 
 .loader::before,
@@ -29,6 +35,27 @@
     border: 3px solid transparent;
     border-top: 3px solid #fff;
     animation: spin .5s ease-in-out infinite;
+}
+
+.mini_loader::before,
+.mini_loader::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
+
+.mini_loader::before {
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.mini_loader::after {
+    border: 2px solid transparent;
+    border-top: 2px solid #282c34;
+    animation: spin .3s ease-in-out infinite;
 }
 
 @keyframes spin {

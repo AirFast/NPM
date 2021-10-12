@@ -1,4 +1,4 @@
-import { SET_PRODUCTS } from '../actions/productAction';
+import { SET_PRODUCTS, SET_PENDING_PRODUCT } from '../actions/productAction';
 import { SET_ADDED_TO_CART } from '../actions/cartAction';
 
 const initState = {
@@ -15,18 +15,41 @@ const productReduser = (state = initState, action) => {
                 isSet: true,
                 items: [
                     ...action.items.map(item => {
-                        return { ...item, isAddedToCart: false };
+                        return {
+                            ...item,
+                            isAddedToCart: false,
+                            isPending: false,
+                        };
                     })
                 ],
                 count: action.items.length
             };
+        case SET_PENDING_PRODUCT:
+            return {
+                ...state,
+                items: [
+                    ...state.items.map(item => {
+                        if (item.id === action.id) {
+                            return {
+                                ...item,
+                                isPending: true,
+                            };
+                        }
+                        return item;
+                    })
+                ]
+            }
         case SET_ADDED_TO_CART:
             return {
                 ...state,
                 items: [
                     ...state.items.map(item => {
                         if (item.id === action.id) {
-                            return { ...item, isAddedToCart: !item.isAddedToCart };
+                            return {
+                                ...item,
+                                isAddedToCart: !item.isAddedToCart,
+                                isPending: false,
+                            };
                         }
                         return item;
                     })

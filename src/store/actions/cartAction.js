@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { mockAPI } from '../../mockapi';
+import { SET_PENDING_PRODUCT } from './productAction';
 
 export const SET_CART = 'SET_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const SET_ADDED_TO_CART = 'SET_ADDED_TO_CART';
 
 export const setCart = () => {
@@ -19,6 +21,8 @@ export const setCart = () => {
 
 export const addToCart = id => {
     return dispatch => {
+        dispatch({type: SET_PENDING_PRODUCT, id});
+
         axios.post(mockAPI.path + 'cart', { productId: id })
             .then(response => {
                 dispatch({ type: SET_ADDED_TO_CART, id });
@@ -33,10 +37,12 @@ export const removeFromCart = id => {
 
         cart.items.forEach(item => {
             if (item.productId === id) {
+                dispatch({type: SET_PENDING_PRODUCT, id});
+
                 axios.delete(mockAPI.path + 'cart/' + item.id)
                     .then(response => {
                         dispatch({ type: SET_ADDED_TO_CART, id });
-                        //         // dispatch({ type: ADD_TO_CART, item: response.data });
+                        dispatch({ type: REMOVE_FROM_CART, id: response.data.id });
                     });
             }
         });

@@ -1,7 +1,6 @@
-import { SET_CART, ADD_TO_CART } from '../actions/cartAction';
+import { SET_CART, ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartAction';
 
 const initState = {
-    isSet: false,
     items: [],
     count: 0
 };
@@ -11,7 +10,6 @@ const cartReduser = (state = initState, action) => {
         case SET_CART:
             return {
                 ...state,
-                isSet: action.items.length ? true : false,
                 items: [
                     ...action.items
                 ],
@@ -20,12 +18,19 @@ const cartReduser = (state = initState, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
-                isSet: true,
                 items: [
                     ...state.items,
                     action.item
                 ],
                 count: ++state.count
+            }
+        case REMOVE_FROM_CART:
+            return {
+                ...state,
+                items: [
+                    ...state.items.filter(item => item.id !== action.id && item)
+                ],
+                count: --state.count
             }
         default:
             return state;

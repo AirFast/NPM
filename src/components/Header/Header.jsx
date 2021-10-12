@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const Header = () => {
   const { cart } = useSelector(state => state);
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <div className='container'>
@@ -30,7 +30,7 @@ const Header = () => {
               <li className={styles.nav_item}>
                 <NavLink to={'/cart'}>
                   <BagFill size={24} />
-                  {cart.isSet && <span className={styles.count}>{cart.count}</span>}
+                  {cart.count > 0 && <span className={styles.count}>{cart.count}</span>}
                 </NavLink>
               </li>
             </ul>
