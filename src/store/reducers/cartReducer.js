@@ -28,7 +28,7 @@ const cartReduser = (state = initState, action) => {
             return {
                 ...state,
                 items: [
-                    ...state.items.filter(item => item.id !== action.id && item)
+                    ...state.items.filter(item => item.id !== action.id)
                 ],
                 count: --state.count
             }
