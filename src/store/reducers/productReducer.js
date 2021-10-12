@@ -27,21 +27,6 @@ const productReduser = (state = initState, action) => {
                 ],
                 count: action.items.length
             };
-        case SET_PENDING_PRODUCT:
-            return {
-                ...state,
-                items: [
-                    ...state.items.map(item => {
-                        if (item.id === action.id) {
-                            return {
-                                ...item,
-                                isPending: true,
-                            };
-                        }
-                        return item;
-                    })
-                ]
-            }
         case SET_ADDED_TO_WISHLIST:
             return {
                 ...state,
@@ -68,6 +53,21 @@ const productReduser = (state = initState, action) => {
                                 ...item,
                                 isAddedToCart: !item.isAddedToCart,
                                 isPending: false,
+                            };
+                        }
+                        return item;
+                    })
+                ]
+            }
+        case SET_PENDING_PRODUCT:
+            return {
+                ...state,
+                items: [
+                    ...state.items.map(item => {
+                        if (item.id === action.id) {
+                            return {
+                                ...item,
+                                isPending: true,
                             };
                         }
                         return item;
