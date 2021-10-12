@@ -4,10 +4,7 @@ import Loader from '../Loader/Loader';
 import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
-    const { products } = useSelector(state => state);
-
-    console.log(products);
-    
+    const { products } = useSelector(state => state);    
     return (
         products.isSet
             ? products.items.map(product => <ProductItem key={product.id} product={product} />)

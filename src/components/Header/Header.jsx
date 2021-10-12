@@ -5,9 +5,10 @@ import styles from './Header.module.css';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { cart } = useSelector(state => state);
+  const { wishlist, cart } = useSelector(state => state);
 
   // console.log(cart);
+  console.log(wishlist);
 
   return (
     <div className='container'>
@@ -25,6 +26,7 @@ const Header = () => {
               <li className={styles.nav_item}>
                 <NavLink to={'/wishlist'}>
                   <Heart size={24} />
+                  {wishlist.count > 0 && <span className={styles.count}>{wishlist.count}</span>}
                 </NavLink>
               </li>
               <li className={styles.nav_item}>
