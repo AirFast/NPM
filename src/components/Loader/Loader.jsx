@@ -3,10 +3,8 @@ import styles from './Loader.module.css';
 
 const Loader = () => {
     return (
-        <div className={styles.loader_wrap}>
-            <div className='h-100 d-flax justify-content-center align-items-center'>
-                <div className={styles.loader}></div>
-            </div>
+        <div className='d-flex justify-content-center align-items-center w-100 mt-100 mb-100'>
+            <div className={styles.loader}></div>
         </div>
     );
 };
