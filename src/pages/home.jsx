@@ -1,13 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PageHeader from '../components/PageHeader/PageHeader';
 import ProductsList from '../components/ProductsList/ProductsList';
 
 const Home = () => {
+    const { products, cart } = useSelector(state => state);
+
+    console.log(cart);
+
     return (
         <main className='container'>
             <section className='row'>
                 <PageHeader />
-                <ProductsList />
+                <ProductsList products={products} />
             </section>
         </main>
     );

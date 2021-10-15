@@ -14,7 +14,7 @@ const productReduser = (state = initState, action) => {
         case SET_PRODUCTS:
             return {
                 ...state,
-                isSet: true,
+                isSet: action.items.length > 0,
                 items: [
                     ...action.items.map(item => {
                         return {

@@ -1,7 +1,9 @@
 import { SET_CART, ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartAction';
 
 const initState = {
+    isSet: false,
     items: [],
+    searchValue: '',
     count: 0
 };
 
@@ -10,6 +12,7 @@ const cartReduser = (state = initState, action) => {
         case SET_CART:
             return {
                 ...state,
+                isSet: action.items.length > 0,
                 items: [
                     ...action.items
                 ],
