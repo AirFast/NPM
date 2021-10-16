@@ -6,7 +6,7 @@ import ProductsList from '../components/ProductsList/ProductsList';
 const Home = () => {
     const { products, cart } = useSelector(state => state);
 
-    console.log(cart);
+    // console.log(cart);
 
     return (
         <main className='container'>
