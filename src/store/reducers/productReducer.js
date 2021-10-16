@@ -1,6 +1,5 @@
 import { SET_PRODUCTS, SET_PENDING_PRODUCT, SET_SEARCH_VALUE } from '../actions/productAction';
 import { SET_ADDED_TO_CART } from '../actions/cartAction';
-import { SET_ADDED_TO_WISHLIST } from '../actions/wishlistAction';
 
 const initState = {
     isSet: false,
@@ -19,7 +18,6 @@ const productReduser = (state = initState, action) => {
                     ...action.items.map(item => {
                         return {
                             ...item,
-                            isAddedToWishlist: false,
                             isAddedToCart: false,
                             isPending: false,
                         };
@@ -27,22 +25,6 @@ const productReduser = (state = initState, action) => {
                 ],
                 count: action.items.length
             };
-        case SET_ADDED_TO_WISHLIST:
-            return {
-                ...state,
-                items: [
-                    ...state.items.map(item => {
-                        if (item.id === action.id) {
-                            return {
-                                ...item,
-                                isAddedToWishlist: !item.isAddedToWishlist,
-                                isPending: false,
-                            };
-                        }
-                        return item;
-                    })
-                ]
-            }
         case SET_ADDED_TO_CART:
             return {
                 ...state,
@@ -67,7 +49,7 @@ const productReduser = (state = initState, action) => {
                         if (item.id === action.id) {
                             return {
                                 ...item,
-                                isPending: true,
+                                isPending: !item.isPending,
                             };
                         }
                         return item;

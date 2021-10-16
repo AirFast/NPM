@@ -13,7 +13,7 @@ const appLocalStorage = {
     },
     get: () => JSON.parse(localStorage.getItem('app')),
 
-    setLocalStorageItem: function(itemName, itemValue) {
+    addLocalStorageItem: function(itemName, itemValue) {
         const appData = this.get();
 
         localStorage.setItem('app', JSON.stringify({
@@ -31,17 +31,17 @@ const appLocalStorage = {
         localStorage.setItem('app', JSON.stringify({
             ...appData,
             [itemName]: [
-                ...appData[itemName].filter(item => item !== itemValue),
+                ...appData[itemName].filter(item => item.id !== itemValue.id),
             ]
         }));
     },
 
-    setWishlistItem: function(id) {
-        this.setLocalStorageItem('wishlist', id)
+    addWishlistItem: function(item) {
+        this.addLocalStorageItem('wishlist', item)
     },
 
-    removeWishlistItem: function(id) {
-        this.removeLocalStorageItem('wishlist', id)
+    removeWishlistItem: function(item) {
+        this.removeLocalStorageItem('wishlist', item)
     },
 
     init: function() {
@@ -52,9 +52,9 @@ const appLocalStorage = {
         }
 
         return {
-            setWishlistItem: id => this.setWishlistItem(id),
-            removeWishlistItem: id => this.removeWishlistItem(id),
-            localStorage: this.get()
+            addWishlistItem: item => this.addWishlistItem(item),
+            removeWishlistItem: item => this.removeWishlistItem(item),
+            storage: this.get()
         }
     }
 }

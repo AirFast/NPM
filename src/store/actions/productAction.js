@@ -8,12 +8,7 @@ export const SET_PENDING_PRODUCT = 'SET_PENDING_PRODUCT';
 export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
 
 export const setProducts = () => {
-    return (dispatch, getState, getAppLocalStorage) => {
-        const appLocalStorage = getAppLocalStorage();
-
-        //appLocalStorage.removeWishlistItem(7);
-        console.log(appLocalStorage);
-
+    return dispatch => {
         axios.get(mockAPI.path + 'products').then(response => {
             dispatch({ type: SET_PRODUCTS, items: response.data });
             dispatch(setWishlist());

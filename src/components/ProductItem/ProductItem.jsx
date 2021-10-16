@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Check, Plus, Heart, HeartFill } from 'react-bootstrap-icons';
 import styles from './ProductItem.module.css'
 import { addToCart, removeFromCart } from '../../store/actions/cartAction';
@@ -7,14 +7,17 @@ import { addToWishlist, removeFromWishlist } from '../../store/actions/wishlistA
 import MiniLoader from '../Loader/MiniLoader';
 
 const ProductItem = ({ product }) => {
+    const { wishlist } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const handleAddToWishlist = () => {
-        dispatch(addToWishlist(product.id));
+        const id = !product.productId ? product.id : product.productId;
+        dispatch(addToWishlist(id));
     }
 
     const handleRemoveFromWishlist = () => {
-        dispatch(removeFromWishlist(product.id));
+        const id = !product.productId ? product.id : product.productId;
+        dispatch(removeFromWishlist(id));
     }
 
     const handleAddToCart = () => {
@@ -30,7 +33,7 @@ const ProductItem = ({ product }) => {
             <article className={styles.product_item}>
                 {product.isPending
                     ? <div className={styles.mini_loader}><MiniLoader size={18} /></div>
-                    : !product.isAddedToWishlist
+                    : !wishlist.items.some(item => item.productId === (!product.productId ? product.id : product.productId))
                         ? <button className={styles.add_to_wishlist} title='Add to Wishlist' onClick={handleAddToWishlist}><Heart size={20} /></button>
                         : <button className={styles.remove_from_wishlist} title='Remove from Wishlist' onClick={handleRemoveFromWishlist}><HeartFill size={20} /></button>}
                 <img src={`./img/${product.image}`} alt="logo" />
