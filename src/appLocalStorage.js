@@ -2,15 +2,19 @@
 const appLocalStorage = {
     initAppData: {
         user: {
+            id: null,
             isAuth: false,
-            userName: null
+            userName: null,
+            exp: null
         },
         wishlist: [],
         cart: []
     },
+    
     set: function() {
         localStorage.setItem('app', JSON.stringify(this.initAppData))
     },
+
     get: () => JSON.parse(localStorage.getItem('app')),
 
     addLocalStorageItem: function(itemName, itemValue) {
