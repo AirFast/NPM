@@ -25,7 +25,8 @@ const cartReduser = (state = initState, action) => {
                     ...state.items,
                     action.item
                 ],
-                count: ++state.count
+                count: ++state.count,
+                isSet: state.count > 0,
             }
         case REMOVE_FROM_CART:
             return {
@@ -33,7 +34,8 @@ const cartReduser = (state = initState, action) => {
                 items: [
                     ...state.items.filter(item => item.id !== action.id)
                 ],
-                count: --state.count
+                count: --state.count,
+                isSet: state.count > 0,
             }
         default:
             return state;

@@ -4,9 +4,9 @@ import PageHeader from '../components/PageHeader/PageHeader';
 import ProductsList from '../components/ProductsList/ProductsList';
 
 const Home = () => {
-    const { products, wishlist } = useSelector(state => state);
+    const { products } = useSelector(state => state);
 
-    //console.log(wishlist);
+    // console.log(products);
 
     return (
         <main className='container'>
