@@ -23,6 +23,34 @@
     margin: 0 10px;
 }
 
+.nav_item.sign_up_item a {
+    border: 1px solid #fff;
+    padding: 3px 10px 6px;
+    border-radius: 5px;
+}
+
+.nav_item.sign_up_item a:hover {
+    color: #fff;
+    background: #06d474;
+    border-color: #06d474;
+}
+
+.nav_item.user_item a {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_item.user_item a:hover {
+    color: #fff;
+    background: #06d474;
+}
+
 .count {
     display: flex;
     justify-content: center;

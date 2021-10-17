@@ -4,7 +4,6 @@ const appLocalStorage = {
         user: {
             id: null,
             isAuth: false,
-            userName: null,
             exp: null
         },
         wishlist: [],
