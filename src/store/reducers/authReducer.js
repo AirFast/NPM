@@ -1,4 +1,4 @@
-import { CHANGE_SIGNIN_INPUTS } from "../actions/authAction";
+import { AUTH_SIGNIN_ERROR, CHANGE_SIGNIN_INPUTS } from "../actions/authAction";
 
 const initState = {
     signin: {
@@ -22,9 +22,20 @@ const authReducer = (state = initState, action) => {
                 ...state,
                 signin: {
                     ...state.signin,
-                    [action.payloads.id]: action.payloads.value
+                    [action.payloads.id]: action.payloads.value,
+                    signinError: null
                 }
             }
+        case AUTH_SIGNIN_ERROR: {
+            return {
+                ...state,
+                signin: {
+                    ...state.signin,
+                    password: '',
+                    signinError: action.error
+                }
+            }
+        }
         default:
             return state;
     }

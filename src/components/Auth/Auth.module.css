@@ -1,3 +1,12 @@
+.auth_form_err {
+    display: block;
+    text-align: center;
+    padding: 20px 40px;
+    background: rgba(255, 0, 0, .2);
+    border-radius: 5px;
+    margin: 30px 0 0;
+}
+
 .input_group {
     margin-bottom: 30px;
 }

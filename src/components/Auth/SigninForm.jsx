@@ -33,6 +33,7 @@ const SigninForm = () => {
                     <button type='submit'>Sign in</button>
                     <span>Don't have an account yet? <Link to={'/signup'}>Sign up.</Link></span>
                 </div>
+                {signin.signinError && <span className={styles.auth_form_err}>{signin.signinError}</span>}
             </form>
         </div>
     );
