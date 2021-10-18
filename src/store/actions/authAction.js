@@ -11,13 +11,15 @@ export const changeLoginInputs = payloads => {
 };
 
 export const signIn = credentials => {
-    return (dispatch, getState) => {
+    return (dispatch, getState, getAppLocalStorage) => {
+        const appLocalStorage = getAppLocalStorage();
+
         axios.get(mockAPI.path + 'user').then(response => {
             const users = response.data;
 
             users.forEach(user => {
                 if (user.emeil === credentials.emeil && user.password === credentials.password) {
-                    console.log(user);
+                    appLocalStorage.userSignIn(user.id);
                 } else {
                     dispatch({ type: AUTH_SIGNIN_ERROR, error: 'Email or password is invalid' });
                 }
