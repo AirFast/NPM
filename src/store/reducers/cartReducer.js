@@ -42,5 +42,4 @@ const cartReduser = (state = initState, action) => {
     }
 };
 
-
 export default cartReduser;

@@ -1,11 +1,13 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { getAppLocalStorage } from '../appLocalStorage';
+import authReducer from './reducers/authReducer';
 import cartReduser from './reducers/cartReducer';
-import productReduser from './reducers/productReducer';
 import wishlistReduser from './reducers/wishlistReducer';
+import productReduser from './reducers/productReducer';
 
 const rootReduser = combineReducers({
+    auth: authReducer,
     products: productReduser,
     wishlist: wishlistReduser,
     cart: cartReduser

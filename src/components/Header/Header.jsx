@@ -19,10 +19,10 @@ const Header = () => {
           </NavLink>
           <ul className={styles.navigation}>
             <li className={styles.nav_item}>
-              <NavLink to={'/'}>Sign in</NavLink>
+              <NavLink to={'/signin'}>Sign in</NavLink>
             </li>
             <li className={styles.nav_item + ' ' + styles.sign_up_item}>
-              <NavLink to={'/'}>Sign up</NavLink>
+              <NavLink to={'/signup'}>Sign up</NavLink>
             </li>
             <li className={styles.nav_item}>
               <NavLink to={'/wishlist'}>
@@ -37,7 +37,7 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={styles.nav_item + ' ' + styles.user_item}>
-              <NavLink to={'/cart'}>
+              <NavLink to={'/'}>
                 <PersonFill size={24} />
               </NavLink>
             </li>

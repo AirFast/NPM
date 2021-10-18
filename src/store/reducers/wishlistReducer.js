@@ -42,5 +42,4 @@ const wishlistReduser = (state = initState, action) => {
     }
 };
 
-
 export default wishlistReduser;

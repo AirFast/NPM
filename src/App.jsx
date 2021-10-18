@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer';
 import home from './pages/home';
 import wishlist from './pages/wishlist';
 import cart from './pages/cart';
+import signin from './pages/signin';
+import signup from './pages/signup';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,11 +27,13 @@ const App = () => {
         <Route exact path={'/'} component={home} />
         <Route exact path={'/wishlist'} component={wishlist} />
         <Route exact path={'/cart'} component={cart} />
+        <Route exact path={'/signin'} component={signin} />
+        <Route exact path={'/signup'} component={signup} />
       </Switch>
 
       <Footer />
     </>
   );
-}
+};
 
 export default App;
