@@ -62,7 +62,7 @@ const appLocalStorage = {
         localStorage.setItem('app', JSON.stringify({
             ...appData,
             [itemName]: [
-                ...appData[itemName].filter(item => item.id !== itemValue.id),
+                ...appData[itemName].filter(item => item.productId !== itemValue.productId),
             ]
         }));
     },

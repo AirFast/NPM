@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { mockAPI } from '../../mockapi';
+import { setCart } from './cartAction';
+import { setWishlist } from './wishlistAction';
 
 export const SET_USER = 'SET_USER';
 
@@ -8,12 +10,17 @@ export const setUser = () => {
         const appLocalStorage = getAppLocalStorage();
         const localStorage = appLocalStorage.storage;
 
-        if (localStorage.user.isAuth) {
+        if (!localStorage.user.isAuth) {
+            dispatch(setWishlist());
+            dispatch(setCart());
+        } else {
             axios.get(mockAPI.path + 'user/' + localStorage.user.id)
                 .then(response => {
                     const user = response.data;
 
                     dispatch({ type: SET_USER, user });
+                    dispatch(setWishlist());
+                    dispatch(setCart());
                 });
         }
     };

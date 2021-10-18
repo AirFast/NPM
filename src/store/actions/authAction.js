@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mockAPI } from '../../mockapi';
-import { SET_USER } from './userAction';
+import { setUser } from './userAction';
 
 export const CHANGE_SIGNIN_INPUTS = 'CHANGE_SIGNIN_INPUTS';
 export const AUTH_SIGNIN_ERROR = 'AUTH_SIGNIN_ERROR';
@@ -20,8 +20,8 @@ export const signIn = credentials => {
 
             users.forEach(user => {
                 if (user.emeil === credentials.emeil && user.password === credentials.password) {
-                    dispatch({ type: SET_USER, user });
                     appLocalStorage.userSignIn(user.id);
+                    dispatch(setUser());
                 } else {
                     dispatch({ type: AUTH_SIGNIN_ERROR, error: 'Email or password is invalid' });
                 }

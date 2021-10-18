@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from './store/actions/productAction';
-import { setUser } from './store/actions/userAction';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 // Pages
-import home from './pages/home';
-import wishlist from './pages/wishlist';
-import cart from './pages/cart';
-import signin from './pages/signin';
-import signup from './pages/signup';
+import Home from './pages/home';
+import Wishlist from './pages/wishlist';
+import Cart from './pages/cart';
+import Signin from './pages/signin';
+import Signup from './pages/signup';
 
 const App = () => {
+  const { user } = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUser());
     dispatch(setProducts());
   }, [dispatch]);
 
@@ -26,11 +25,15 @@ const App = () => {
       <Header />
 
       <Switch>
-        <Route exact path={'/'} component={home} />
-        <Route exact path={'/wishlist'} component={wishlist} />
-        <Route exact path={'/cart'} component={cart} />
-        <Route exact path={'/signin'} component={signin} />
-        <Route exact path={'/signup'} component={signup} />
+        <Route exact path={'/'} component={Home} />
+        <Route exact path={'/wishlist'} component={Wishlist} />
+        <Route exact path={'/cart'} component={Cart} />
+        <Route exact path={'/signin'}>
+          {user.id ? <Redirect to='/' /> : <Signin />}
+        </Route>
+        <Route exact path={'/signup'}>
+          {user.id ? <Redirect to='/' /> : <Signup />}
+        </Route>
       </Switch>
 
       <Footer />
