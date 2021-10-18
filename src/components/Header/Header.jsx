@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArrowClockwise, Heart, BagFill, PersonFill } from 'react-bootstrap-icons';
+import { ArrowClockwise, Heart, BagFill } from 'react-bootstrap-icons';
 import styles from './Header.module.css';
 import { useSelector } from 'react-redux';
+import SignInLinks from './SignInLinks';
+import SignOutLinks from './SignOutLinks';
 
 const Header = () => {
-  const { wishlist, cart } = useSelector(state => state);
+  const { user, wishlist, cart } = useSelector(state => state);
 
   return (
     <header className='container'>
@@ -18,12 +20,7 @@ const Header = () => {
             </div>
           </NavLink>
           <ul className={styles.navigation}>
-            <li className={styles.nav_item}>
-              <NavLink to={'/signin'}>Sign in</NavLink>
-            </li>
-            <li className={styles.nav_item + ' ' + styles.sign_up_item}>
-              <NavLink to={'/signup'}>Sign up</NavLink>
-            </li>
+            {!user.id && <SignInLinks />}
             <li className={styles.nav_item}>
               <NavLink to={'/wishlist'}>
                 <Heart size={24} />
@@ -36,15 +33,11 @@ const Header = () => {
                 {cart.count > 0 && <span className={styles.count}>{cart.count}</span>}
               </NavLink>
             </li>
-            <li className={styles.nav_item + ' ' + styles.user_item}>
-              <NavLink to={'/'}>
-                <PersonFill size={24} />
-              </NavLink>
-            </li>
+            {!!user.id && <SignOutLinks />}
           </ul>
         </div>
       </div>
-    </header >
+    </header>
   );
 };
 

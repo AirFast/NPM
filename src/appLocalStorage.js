@@ -25,7 +25,7 @@ const appLocalStorage = {
             ...appData,
             user: {
                 id: userId,
-                isAuth: false,
+                isAuth: true,
                 exp: expDate.getTime()
             }
         }));
@@ -77,8 +77,6 @@ const appLocalStorage = {
 
     init: function () {
         const appData = this.get();
-
-        console.log(appData);
 
         if (!appData) {
             this.set()

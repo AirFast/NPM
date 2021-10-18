@@ -5,9 +5,11 @@ import authReducer from './reducers/authReducer';
 import cartReduser from './reducers/cartReducer';
 import wishlistReduser from './reducers/wishlistReducer';
 import productReduser from './reducers/productReducer';
+import userReducer from './reducers/userReducer';
 
 const rootReduser = combineReducers({
     auth: authReducer,
+    user: userReducer,
     products: productReduser,
     wishlist: wishlistReduser,
     cart: cartReduser

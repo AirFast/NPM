@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setProducts } from './store/actions/productAction';
+import { setUser } from './store/actions/userAction';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -16,6 +17,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setUser());
     dispatch(setProducts());
   }, [dispatch]);
 
