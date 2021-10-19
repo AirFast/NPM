@@ -4,6 +4,7 @@ import { setCart } from './cartAction';
 import { setWishlist } from './wishlistAction';
 
 export const SET_USER = 'SET_USER';
+export const SET_USER_SIGN_OUT = 'SET_USER_SIGN_OUT';
 
 export const setUser = () => {
     return (dispatch, getState, getAppLocalStorage) => {
@@ -11,6 +12,7 @@ export const setUser = () => {
         const localStorage = appLocalStorage.storage;
 
         if (!localStorage.user.isAuth) {
+            dispatch({ type: SET_USER_SIGN_OUT });
             dispatch(setWishlist());
             dispatch(setCart());
         } else {

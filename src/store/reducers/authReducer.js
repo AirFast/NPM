@@ -1,4 +1,4 @@
-import { AUTH_SIGNIN_ERROR, CHANGE_SIGNIN_INPUTS } from "../actions/authAction";
+import { AUTH_SIGNIN_ERROR, AUTH_SIGNIN_SUCCESS, CHANGE_SIGNIN_INPUTS } from "../actions/authAction";
 
 const initState = {
     signin: {
@@ -26,7 +26,25 @@ const authReducer = (state = initState, action) => {
                     signinError: null
                 }
             }
-        case AUTH_SIGNIN_ERROR: {
+        case AUTH_SIGNIN_SUCCESS:
+            return {
+                ...state,
+                signin: {
+                    ...state.signin,
+                    email: '',
+                    password: '',
+                    signinError: null
+                },
+                signup: {
+                    ...state.signup,
+                    name: '',
+                    email: '',
+                    password: '',
+                    passwordConfirm: '',
+                    signupError: null
+                }
+            }
+        case AUTH_SIGNIN_ERROR:
             return {
                 ...state,
                 signin: {
@@ -35,7 +53,6 @@ const authReducer = (state = initState, action) => {
                     signinError: action.error
                 }
             }
-        }
         default:
             return state;
     }

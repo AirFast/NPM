@@ -3,6 +3,7 @@ import { mockAPI } from '../../mockapi';
 import { setUser } from './userAction';
 
 export const CHANGE_SIGNIN_INPUTS = 'CHANGE_SIGNIN_INPUTS';
+export const AUTH_SIGNIN_SUCCESS = 'AUTH_SIGNIN_SUCCESS';
 export const AUTH_SIGNIN_ERROR = 'AUTH_SIGNIN_ERROR';
 
 export const changeLoginInputs = payloads => {
@@ -22,10 +23,21 @@ export const signIn = credentials => {
                 if (user.emeil === credentials.emeil && user.password === credentials.password) {
                     appLocalStorage.userSignIn(user.id);
                     dispatch(setUser());
+                    dispatch({ type: AUTH_SIGNIN_SUCCESS });
                 } else {
                     dispatch({ type: AUTH_SIGNIN_ERROR, error: 'Email or password is invalid' });
                 }
             });
         });
+    };
+};
+
+export const signOut = () => {
+    return (dispatch, getState, getAppLocalStorage) => {
+        const appLocalStorage = getAppLocalStorage();
+
+        appLocalStorage.userSignOut();
+        console.log(appLocalStorage);
+        dispatch(setUser());
     };
 };

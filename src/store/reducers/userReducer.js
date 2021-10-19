@@ -1,4 +1,4 @@
-import { SET_USER } from '../actions/userAction';
+import { SET_USER, SET_USER_SIGN_OUT } from '../actions/userAction';
 
 const initState = {
     id: null,
@@ -6,7 +6,7 @@ const initState = {
     email: '',
     password: '',
     wishlistId: null,
-    cartId: null,
+    cartId: null
 }
 
 const userReducer = (state = initState, action) => {
@@ -15,6 +15,16 @@ const userReducer = (state = initState, action) => {
             return {
                 ...state,
                 ...action.user
+            }
+        case SET_USER_SIGN_OUT:
+            return {
+                ...state,
+                id: null,
+                name: '',
+                email: '',
+                password: '',
+                wishlistId: null,
+                cartId: null
             }
         default:
             return state;
