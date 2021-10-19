@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { changeLoginInputs, signIn } from '../../store/actions/authAction';
+import { changeSigninInputs, signIn } from '../../store/actions/authAction';
 import styles from './Auth.module.css';
 
 const SigninForm = () => {
@@ -9,7 +9,7 @@ const SigninForm = () => {
     const dispatch = useDispatch();
 
     const handleChangeInputs = e => {
-        dispatch(changeLoginInputs(e.target));
+        dispatch(changeSigninInputs(e.target));
     };
 
     const handleSubmit = e => {

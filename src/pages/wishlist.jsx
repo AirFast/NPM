@@ -12,7 +12,7 @@ const Wishlist = () => {
     <main className='container'>
       <section className='row'>
         <PageHeader />
-        <ProductsList products={wishlist} />
+        <ProductsList products={wishlist} setLoader={false} />
       </section>
     </main>
   );

@@ -12,7 +12,7 @@ const Home = () => {
         <main className='container'>
             <section className='row'>
                 <PageHeader />
-                <ProductsList products={products} />
+                <ProductsList products={products} setLoader={true}/>
             </section>
         </main>
     );

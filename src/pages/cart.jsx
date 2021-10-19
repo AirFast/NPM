@@ -12,7 +12,7 @@ const Cart = () => {
         <main className='container'>
             <section className='row'>
                 <PageHeader />
-                <ProductsList products={cart} />
+                <ProductsList products={cart} setLoader={false}/>
             </section>
         </main>
     );
