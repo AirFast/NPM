@@ -7,25 +7,24 @@ import { addToWishlist, removeFromWishlist } from '../../store/actions/wishlistA
 import MiniLoader from '../Loader/MiniLoader';
 
 const ProductItem = ({ product }) => {
-    const { wishlist } = useSelector(state => state);
+    const { wishlist, cart } = useSelector(state => state);
     const dispatch = useDispatch();
+    const id = !product.productId ? product.id : product.productId;
 
     const handleAddToWishlist = () => {
-        const id = !product.productId ? product.id : product.productId;
         dispatch(addToWishlist(id));
     }
 
     const handleRemoveFromWishlist = () => {
-        const id = !product.productId ? product.id : product.productId;
         dispatch(removeFromWishlist(id));
     }
 
     const handleAddToCart = () => {
-        dispatch(addToCart(product.id));
+        dispatch(addToCart(id));
     }
 
     const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(product.id));
+        dispatch(removeFromCart(id));
     }
 
     return (
@@ -42,7 +41,7 @@ const ProductItem = ({ product }) => {
                     <span className={styles.price}>${product.price}</span>
                     {product.isPending
                         ? <MiniLoader size={32} />
-                        : !product.isAddedToCart
+                        : !cart.items.some(item => item.productId === (!product.productId ? product.id : product.productId))
                             ? <button className={styles.add_to_cart} title='Add to Cart' onClick={handleAddToCart}><Plus size={28} /></button>
                             : <button className={styles.remove_from_cart} title='Remove from Cart' onClick={handleRemoveFromCart}><Check size={28} /></button>}
                 </div>

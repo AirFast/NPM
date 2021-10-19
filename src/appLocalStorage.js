@@ -75,6 +75,14 @@ const appLocalStorage = {
         this.removeLocalStorageItem('wishlist', item)
     },
 
+    addCartItem: function (item) {
+        this.addLocalStorageItem('cart', item)
+    },
+
+    removeCartItem: function (item) {
+        this.removeLocalStorageItem('cart', item)
+    },
+
     init: function () {
         const appData = this.get();
 
@@ -91,6 +99,8 @@ const appLocalStorage = {
             userSignOut: () => this.userSignOut(),
             addWishlistItem: item => this.addWishlistItem(item),
             removeWishlistItem: item => this.removeWishlistItem(item),
+            addCartItem: item => this.addCartItem(item),
+            removeCartItem: item => this.removeCartItem(item),
             storage: appData
         }
     }

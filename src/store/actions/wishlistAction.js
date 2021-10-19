@@ -36,25 +36,27 @@ export const setWishlist = () => {
                 .then(response => {
                     const user = response.data;
 
-                    axios.get(mockAPI.path + 'wishlist/' + user.wishlistId)
-                        .then(response => {
-                            const wishlist = response.data;
+                    if (!!user.wishlistId) {
+                        axios.get(mockAPI.path + 'wishlist/' + user.wishlistId)
+                            .then(response => {
+                                const wishlist = response.data;
 
-                            wishlist.items.forEach(item => {
-                                wishlistItems.push(
-                                    ...products.items
-                                        .filter(productItem => productItem.id === item.productId)
-                                        .map(productItem => {
-                                            return {
-                                                ...productItem,
-                                                productId: productItem.id
-                                            }
-                                        })
-                                );
+                                wishlist.items.forEach(item => {
+                                    wishlistItems.push(
+                                        ...products.items
+                                            .filter(productItem => productItem.id === item.productId)
+                                            .map(productItem => {
+                                                return {
+                                                    ...productItem,
+                                                    productId: productItem.id
+                                                }
+                                            })
+                                    );
+                                });
+
+                                dispatch({ type: SET_WISHLIST, items: wishlistItems });
                             });
-
-                            dispatch({ type: SET_WISHLIST, items: wishlistItems });
-                        });
+                    }
                 });
         }
     };

@@ -1,5 +1,4 @@
 import { SET_PRODUCTS, SET_PENDING_PRODUCT, SET_SEARCH_VALUE } from '../actions/productAction';
-import { SET_ADDED_TO_CART } from '../actions/cartAction';
 
 const initState = {
     isSet: false,
@@ -18,29 +17,12 @@ const productReduser = (state = initState, action) => {
                     ...action.items.map(item => {
                         return {
                             ...item,
-                            isAddedToCart: false,
                             isPending: false,
                         };
                     })
                 ],
                 count: action.items.length
             };
-        case SET_ADDED_TO_CART:
-            return {
-                ...state,
-                items: [
-                    ...state.items.map(item => {
-                        if (item.id === action.id) {
-                            return {
-                                ...item,
-                                isAddedToCart: !item.isAddedToCart,
-                                isPending: false,
-                            };
-                        }
-                        return item;
-                    })
-                ]
-            }
         case SET_PENDING_PRODUCT:
             return {
                 ...state,

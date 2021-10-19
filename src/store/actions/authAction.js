@@ -37,7 +37,6 @@ export const signOut = () => {
         const appLocalStorage = getAppLocalStorage();
 
         appLocalStorage.userSignOut();
-        console.log(appLocalStorage);
         dispatch(setUser());
     };
 };

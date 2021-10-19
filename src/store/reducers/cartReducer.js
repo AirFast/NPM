@@ -23,7 +23,10 @@ const cartReduser = (state = initState, action) => {
                 ...state,
                 items: [
                     ...state.items,
-                    action.item
+                    {
+                        ...action.item,
+                        isPending: false
+                    }
                 ],
                 count: ++state.count,
                 isSet: state.count > 0,
