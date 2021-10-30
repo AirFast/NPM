@@ -10,13 +10,15 @@ const appLocalStorage = {
         cart: []
     },
 
-    set: function () {
+    set() {
         localStorage.setItem('app', JSON.stringify(this.initAppData))
     },
 
-    get: () => JSON.parse(localStorage.getItem('app')),
+    get() {
+        return JSON.parse(localStorage.getItem('app'))
+    },
 
-    userSignIn: function (userId) {
+    userSignIn(userId) {
         const appData = this.get();
         const millisecondsPerMonth = 86400 * 1000 * 30;
         const expDate = new Date(Date.now() + millisecondsPerMonth);
@@ -31,7 +33,7 @@ const appLocalStorage = {
         }));
     },
 
-    userSignOut: function () {
+    userSignOut() {
         const appData = this.get();
 
         localStorage.setItem('app', JSON.stringify({
@@ -44,7 +46,7 @@ const appLocalStorage = {
         }));
     },
 
-    addLocalStorageItem: function (itemName, itemValue) {
+    addLocalStorageItem(itemName, itemValue) {
         const appData = this.get();
 
         localStorage.setItem('app', JSON.stringify({
@@ -56,7 +58,7 @@ const appLocalStorage = {
         }));
     },
 
-    removeLocalStorageItem: function (itemName, itemValue) {
+    removeLocalStorageItem(itemName, itemValue) {
         const appData = this.get();
 
         localStorage.setItem('app', JSON.stringify({
@@ -67,23 +69,23 @@ const appLocalStorage = {
         }));
     },
 
-    addWishlistItem: function (item) {
+    addWishlistItem(item) {
         this.addLocalStorageItem('wishlist', item)
     },
 
-    removeWishlistItem: function (item) {
+    removeWishlistItem(item) {
         this.removeLocalStorageItem('wishlist', item)
     },
 
-    addCartItem: function (item) {
+    addCartItem(item) {
         this.addLocalStorageItem('cart', item)
     },
 
-    removeCartItem: function (item) {
+    removeCartItem(item) {
         this.removeLocalStorageItem('cart', item)
     },
 
-    init: function () {
+    init() {
         const appData = this.get();
 
         if (!appData) {
